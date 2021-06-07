@@ -1,5 +1,6 @@
 import React from "react"
 import { Route, useParams } from "react-router"
+import { Link } from "react-router-dom";
 import Comments from '../components/comments/Comments'
 import HighlightedQuote from '../components/quotes/HighlightedQuote'
 const DUMMY_QUOTES = [
@@ -16,6 +17,11 @@ const Quote = props => {
     }
     return <React.Fragment>
         <HighlightedQuote text={quote.text} author={quote.author} />
+        <Route path="/quotes/:quoteId" exact>
+            <div className='centered'>
+                <Link className='btn-flat' to={`/quotes/${quote.id}/comments`}>Comment</Link>
+            </div>
+        </Route>
         {/* <Route path={`/quotes/${quoteId}/comments`}> */}
         <Route path="/quotes/:quoteId/comments">
             <Comments></Comments>
