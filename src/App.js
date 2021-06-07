@@ -1,6 +1,7 @@
 import { Redirect, Route, Switch } from "react-router";
 import Layout from "./components/layout/Layout";
 import NewQuote from "./pages/NewQuote";
+import NotFound from "./pages/NotFound";
 import Quote from "./pages/Quote";
 import Quotes from "./pages/Quotes";
 
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/new-quotes">
           <NewQuote />
+        </Route>
+        <Route path='*'>
+          <NotFound />
         </Route>
       </Switch>
     </Layout>
